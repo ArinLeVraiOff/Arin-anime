@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamFree Studio</title>
+    <meta
+      name="description"
+      content="Plateforme de streaming gratuite avec studio de gestion pour films, séries et animes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">S</div>
+          <span>StreamFree</span>
+        </div>
+
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a href="#accueil">Accueil</a>
+          <a href="#catalogue">Catalogue</a>
+          <a href="#studio">Studio</a>
+          <a href="#">Animes</a>
+          <a href="#">Séries</a>
+        </nav>
+
+        <div class="actions">
+          <button class="ghost-btn">Mon compte</button>
+          <button class="primary-btn">Publier</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="accueil">
+          <div class="hero-copy">
+            <span class="eyebrow">Streaming gratuit</span>
+            <h1>Films, séries, animes et contenus en ligne.</h1>
+            <p>
+              Une interface de streaming rapide et élégante, avec un studio privé pour ajouter
+              tes couvertures, liens vidéo, épisodes et médias depuis ton téléphone.
+            </p>
+
+            <div class="cta-row">
+              <button class="primary-btn large" id="playFeaturedBtn">Lecture</button>
+              <button class="ghost-btn large" id="moreInfoBtn">Voir le catalogue</button>
+            </div>
+
+            <ul class="hero-metrics" aria-label="Statistiques du site">
+              <li><strong>12K+</strong><span>Vidéos</span></li>
+              <li><strong>4.9/5</strong><span>Qualité</span></li>
+              <li><strong>HD</strong><span>Lecture</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-media">
+            <div class="video-frame">
+              <div id="playerContainer" class="player-container"></div>
+              <div id="episodeSelector" class="episode-selector"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="platform-strip" aria-label="Plateformes supportées">
+          <span>SIBNET</span>
+          <span>UQLOAD</span>
+          <span>FStream</span>
+          <span>Vidéo directe</span>
+          <span>Galerie mobile</span>
+        </section>
+
+        <section class="library-panel" id="catalogue" aria-labelledby="library-title">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow secondary">Catalogue</span>
+              <h2 id="library-title">À regarder maintenant</h2>
+            </div>
+
+            <label class="search-box" aria-label="Rechercher">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10.5 3a7.5 7.5 0 015.96 12.76l4.73 4.73 1.41-1.41-4.73-4.73A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"/>
+              </svg>
+              <input id="searchInput" type="search" placeholder="Rechercher un titre..." />
+            </label>
+          </div>
+
+          <div class="filters" id="filters" aria-label="Filtres"></div>
+          <div class="catalog-grid" id="catalog"></div>
+        </section>
+
+        <section class="studio-panel" id="studio" aria-labelledby="studio-title">
+          <div class="studio-header">
+            <div>
+              <span class="eyebrow secondary">Studio privé</span>
+              <h2 id="studio-title">Ajouter un film, série ou anime</h2>
+            </div>
+          </div>
+
+          <form id="studioForm" class="studio-form">
+            <div class="form-grid">
+              <label>
+                <span>Titre</span>
+                <input type="text" name="title" placeholder="Ex: Naruto Shippuden" required />
+              </label>
+
+              <label>
+                <span>Type</span>
+                <select name="type">
+                  <option value="Anime">Anime</option>
+                  <option value="Film">Film</option>
+                  <option value="Série">Série</option>
+                  <option value="Animation">Animation</option>
+                  <option value="Documentaire">Documentaire</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Année</span>
+                <input type="number" name="year" min="1900" max="2100" value="2026" />
+              </label>
+
+              <label>
+                <span>Qualité</span>
+                <select name="quality">
+                  <option value="HD">HD</option>
+                  <option value="FHD">FHD</option>
+                  <option value="4K">4K</option>
+                </select>
+              </label>
+
+              <label class="full-span">
+                <span>Image de couverture</span>
+                <div class="upload-box">
+                  <input type="file" name="coverFile" accept="image/*" />
+                  <small>Tu peux choisir une image depuis ta galerie mobile.</small>
+                </div>
+              </label>
+
+              <label class="full-span">
+                <span>Lien URL de la couverture</span>
+                <input type="url" name="coverUrl" placeholder="https://.../cover.jpg" />
+              </label>
+
+              <label class="full-span">
+                <span>Type de lecteur</span>
+                <select name="videoPlatform">
+                  <option value="direct">Vidéo directe</option>
+                  <option value="sibnet">SIBNET</option>
+                  <option value="uqload">UQLOAD</option>
+                  <option value="fstream">FStream</option>
+                </select>
+              </label>
+
+              <label class="full-span">
+                <span>Lien de la vidéo</span>
+                <input type="url" name="videoUrl" placeholder="https://.../video.mp4 ou lien embed" required />
+              </label>
+
+              <label class="full-span">
+                <span>Description</span>
+                <textarea name="description" rows="4" placeholder="Décris le contenu..."></textarea>
+              </label>
+            </div>
+
+            <div class="episode-panel">
+              <h3>Épisodes</h3>
+              <div class="episode-inputs">
+                <input type="text" id="episodeTitle" placeholder="Nom de l’épisode" />
+                <input type="file" id="episodeFile" accept="video/*" />
+                <button type="button" class="ghost-btn" id="addEpisodeBtn">Ajouter l’épisode</button>
+              </div>
+              <ul id="episodeList" class="episode-list"></ul>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Ajouter au catalogue</button>
+              <button type="button" class="ghost-btn" id="resetStudioBtn">Réinitialiser</button>
+            </div>
+          </form>
+
+          <div class="studio-preview">
+            <h3>Mes contenus</h3>
+            <div id="studioEntries" class="studio-entries"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>© 2026 StreamFree — Studio personnel pour diffuser tes contenus.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
